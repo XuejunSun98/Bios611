@@ -7,3 +7,6 @@ RUN R -e "install.packages(\"shiny\")";
 RUN R -e "install.packages(\"BiocManager\")";
 RUN R -e "BiocManager::install(\"ggplot2\");"
 RUN R -e "BiocManager::install(\"ggpubr\");"
+RUN R -e "BiocManager::install(\"tidyverse\");"
+RUN R -e "BiocManager::install(\"limma\");"
+RUN R -e "BiocManager::install(\"gridExtra\");"
