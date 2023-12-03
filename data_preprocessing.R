@@ -20,5 +20,6 @@ data$work_type[data$work_type=="Self-employed"]<-"Self_employed"
 data$work_type<-as.factor(data$work_type)
 table(data$stroke)
 data$stroke2<-factor(data$stroke,levels = c(0,1),labels = c("No Stroke","Stroke"))
+data$bmi<-as.numeric(data$bmi)
 #keep only variables that not duplicate and useful
 save(data,file="processed_data.rda")
