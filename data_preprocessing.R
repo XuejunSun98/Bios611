@@ -1,17 +1,24 @@
 library(limma)
 setwd("/home/rstudio/work")
-data<-read.csv("stroke_prediction_dataset.csv")
+data<-read.csv("healthcare-dataset-stroke-data.csv")
 ##data exploratory
 head(data)
 summary(data)
 str(data)
 #check missing, missing only in Sympotom variable
-data[data==""]<-NA
+data[data=="N/A"]<-NA
 apply(is.na(data),2,sum)
-#We noticed that cholesterol.Levels contains both HDL and LDL. 
-#Here I am going to make two seperate variables HDL and LDL from it.
-data$HDL<-as.numeric(gsub("HDL: ","",strsplit2(data$Cholesterol.Levels,", ")[,1]))
-data$LDL<-as.numeric(gsub("LDL: ","",strsplit2(data$Cholesterol.Levels,", ")[,2]))
+## 201 NA in bmi, less than 5%, delect
+data<-data[!is.na(data$bmi),]
+##delect sample with gender="Other"
+table(data$gender)
+data<-data[-which(data$gender=="Other"),]
+##change data type to vector
+data$hypertension<-factor(data$hypertension,levels = c(0,1),labels = c("No","Yes"))
+data$heart_disease<-factor(data$heart_disease,levels = c(0,1),labels = c("No","Yes"))
+data$work_type[data$work_type=="Self-employed"]<-"Self_employed"
+data$work_type<-as.factor(data$work_type)
+table(data$stroke)
+data$stroke2<-factor(data$stroke,levels = c(0,1),labels = c("No Stroke","Stroke"))
 #keep only variables that not duplicate and useful
-data1<-data[,!colnames(data)%in%c("Patient.Name","Cholesterol.Levels")]
-save(data1,file="processed_data.rda")
+save(data,file="processed_data.rda")
