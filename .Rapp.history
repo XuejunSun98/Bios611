@@ -1,0 +1,2 @@
+load("/Users/xuejunsun/bios611/processed_data.rda")
+load("/Users/xuejunsun/bios611/model.rds")

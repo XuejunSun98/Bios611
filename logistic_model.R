@@ -1,9 +1,7 @@
 library(MASS)
 setwd("/home/rstudio/work")
-load("processed_data.rda")
+load("data_for_report/processed_data.rda")
 # Load the necessary library
-library(MASS)
-
 data$stroke<-as.factor(data$stroke)
 # Fit the full model
 full_model <- glm(stroke ~gender+age+hypertension+heart_disease+ever_married+work_type+
@@ -18,4 +16,4 @@ summary(stepwise_model)
 
 m_f<-glm(stroke ~age+hypertension+heart_disease+avg_glucose_level , family = "binomial", data = data)
 
-saveRDS(m_f,file = "model.rds")
+saveRDS(m_f,file = "data_for_report/model.rds")

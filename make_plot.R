@@ -1,7 +1,7 @@
 library(ggplot2)
 library(gridExtra)
 setwd("/home/rstudio/work")
-load("processed_data.rda")
+load("data_for_report/processed_data.rda")
 ###plot 1 distribution of outcome variable (diagnosis)
 p1<-ggplot(aes(x=stroke2),data=data)+
   geom_bar(aes(fill=stroke2),width=0.3)+ 
