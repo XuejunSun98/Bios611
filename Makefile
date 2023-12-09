@@ -28,4 +28,11 @@ clean:
 	~/work/data_for_report/model.rds
 	Rscript sensitivity_analysis.R
 	
-	
+# Build report
+report.html: .created-dirs ~/work/data_for_report/processed_data.rda\
+	~/work/figures/Barplot.png\
+	~/work/figures/PCA.png\
+	~/work/data_for_report/table1.rds\
+	~/work/data_for_report/model.rds\
+  ~/work/data_for_report/sensitivity.rds
+	R -e "rmarkdown::render(\"report.Rmd\", output_format=\"html_document\")"
