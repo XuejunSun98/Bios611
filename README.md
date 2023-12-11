@@ -20,7 +20,7 @@ docker run -v $(pwd):/home/rstudio/work\
            -it bios611
 ```
 Step 4: Open the Rstudio server in the browser  
-visit http://localhost:8787.Use name is "rstudio", the password is the password you created.  
+visit http://localhost:8787. The user name is "rstudio", the password is the password you created.  
 
 Step 5: Open the terminal in Rstudio  
 ```
