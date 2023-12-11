@@ -62,7 +62,7 @@ knitr::include_graphics("figures/PCA.png")
 ## logistic regression model
 
 Stepwsie method was apply to do the model selection. Best model included "age", "hypertension", "heart diesease", "average glucose level".
-In summary, increaing age, having hypertension, having heart disease, having higher blood glucose are risk factors for stroke.
+In summary, increasing age, having hypertension, having heart disease, having higher blood glucose are risk factors for stroke.
 
 ```{r}
 m_f<-readRDS("data_for_report/model.rds")
