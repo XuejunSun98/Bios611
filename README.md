@@ -11,6 +11,9 @@ docker build . -t bios611
 
 Step 2: Create Password  
 Create a .password file you would like to use  
+```
+echo "YourPassword" > .password
+```
 
 Step 3: Create a docker container
 ```
